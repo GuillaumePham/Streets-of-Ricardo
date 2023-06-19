@@ -307,7 +307,7 @@ public partial class @Joystick: IInputActionCollection2, IDisposable
             ""bindingGroup"": ""Joystick"",
             ""devices"": [
                 {
-                    ""devicePath"": ""<Joystick>"",
+                    ""devicePath"": ""<HID::DragonRise Inc.   Generic   USB  Joystick  >"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
