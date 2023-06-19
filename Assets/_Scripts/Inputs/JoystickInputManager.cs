@@ -10,6 +10,15 @@ public class JoystickInputManager : MonoBehaviour
     private bool _attack;
     private bool _jump;
     
+    private void OnEnable() {
+        Keybinds.Map.Enable();
+    }
+
+    private void OnDisable() {
+        Keybinds.Map.Disable();
+    }
+
+    
     private void Update() {
         _move = Keybinds.Map["Move"].ReadValue<Vector2>();
         _attack = Keybinds.Map["Attack"].ReadValue<float>() > 0;
