@@ -2,7 +2,7 @@
     "name": "Joystick",
     "maps": [
         {
-            "name": "PlayerOne",
+            "name": "Player",
             "id": "f213f3d0-9d28-4eb3-ae75-e274dc18367b",
             "actions": [
                 {
@@ -15,15 +15,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Jump",
-                    "type": "Value",
-                    "id": "13f39b3f-4299-4d5f-8a41-da6b092bffdf",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Attack",
                     "type": "PassThrough",
                     "id": "1bfe52aa-ab66-47e3-827a-73a447539b66",
@@ -31,42 +22,18 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Jump",
+                    "type": "Value",
+                    "id": "13f39b3f-4299-4d5f-8a41-da6b092bffdf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "039a01a1-2e83-48bc-8168-2d0307d9fdc8",
-                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button3",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Joystick",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "38b79caf-6d80-4f33-a131-aa2261763409",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard1",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "28a4208f-1599-4076-998c-240f39d61081",
-                    "path": "<Keyboard>/u",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard2",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "18154623-a7e1-4db5-9e96-37a61e7d4997",
@@ -103,7 +70,7 @@
                 {
                     "name": "Stick",
                     "id": "54851a0c-a55e-49a3-9807-58242b3e0fbe",
-                    "path": "2DVector(mode=2)",
+                    "path": "2DVector(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -158,7 +125,7 @@
                 {
                     "name": "WASD",
                     "id": "cdda1c66-165d-4073-818d-c019b62a022a",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -213,7 +180,7 @@
                 {
                     "name": "IJKL",
                     "id": "a33ebca7-ec53-4ba1-b76b-b33ccd89da68",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -264,6 +231,39 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "039a01a1-2e83-48bc-8168-2d0307d9fdc8",
+                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "38b79caf-6d80-4f33-a131-aa2261763409",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard1",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "28a4208f-1599-4076-998c-240f39d61081",
+                    "path": "<Keyboard>/u",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard2",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

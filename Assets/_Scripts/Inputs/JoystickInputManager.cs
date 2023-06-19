@@ -3,27 +3,64 @@ using System;
 using UnityEngine.InputSystem;
 
 [DefaultExecutionOrder(-100)]
-public class JoystickInputManager : MonoBehaviour
-{
+[RequireComponent(typeof(PlayerInputManager))]
+public class JoystickInputManager : MonoBehaviour {
+
+    [SerializeField] private PlayerInputManager _playerInputManager;
 
     private Vector2 _move;
     private bool _attack;
     private bool _jump;
+
+    private void Reset() {
+        _playerInputManager ??= GetComponent<PlayerInputManager>();
+    }
     
     private void OnEnable() {
-        Keybinds.Map.Enable();
+        Keybinds.PlayerActions.Attack.performed += TryJoinPlayer;
+        Keybinds.PlayerMap.Enable();
     }
 
     private void OnDisable() {
-        Keybinds.Map.Disable();
+        Keybinds.PlayerActions.Attack.performed -= TryJoinPlayer;
+        Keybinds.PlayerMap.Disable();
     }
 
-    
-    private void Update() {
-        _move = Keybinds.Map["Move"].ReadValue<Vector2>();
-        _attack = Keybinds.Map["Attack"].ReadValue<float>() > 0;
-        _jump = Keybinds.Map["Jump"].ReadValue<float>() > 0;
+    private void TryJoinPlayer(InputAction.CallbackContext context) {
+        
+        PlayerInput pairedPlayer = PlayerInput.FindFirstPairedToDevice(context.control.device);
+        
+        string scheme = null;
+        // // find the first scheme with the "Attack" action where the binding matches the control that triggered the callback
+        // foreach (InputBinding binding in Keybinds.PlayerMap.bindings) {
+        //     if (binding.action == "Attack" && binding.effectivePath == context.control.path) {
+        //         scheme = binding.groups.Split(InputBinding.Separator)[0] ?? null;
+        //         break;
+        //     }
+        // }
+        foreach (InputBinding binding in Keybinds.PlayerActions.Attack.bindings) {
+            InputBinding? triggerBinding = context.action.GetBindingForControl(context.control);
+            if (triggerBinding == null) {
+                continue;
+            }
+            if (binding.effectivePath == triggerBinding.Value.effectivePath) {
+                scheme = binding.groups.Split(InputBinding.Separator)[0] ?? null;
+                break;
+            }
+        }
 
-        Debug.Log($"Move: {_move}, Attack: {_attack}, Jump: {_jump}");
+        if (scheme == null) {
+            return;
+        }
+
+        int playerIndex = _playerInputManager.playerCount;
+
+        // If there is no player paired to the device, pair it
+        if (pairedPlayer == null || pairedPlayer.currentControlScheme != scheme) {
+            PlayerInput playerInput = _playerInputManager.JoinPlayer(playerIndex, playerIndex, scheme, context.control.device);
+            Debug.Log($"Player {playerIndex} joined with scheme {scheme}");
+            return;
+        }
+
     }
 }
