@@ -6,9 +6,11 @@ using SevenGame.Utility;
 using System;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Health))]
 public abstract class Character : Entity {
 
     [SerializeField] protected SpriteRenderer _renderer;
+    [SerializeField] protected Health _health;
     [SerializeField] protected Rigidbody _rigidbody;
     [SerializeField] protected Collider _collider;
 
@@ -48,6 +50,13 @@ public abstract class Character : Entity {
         get {
             _renderer ??= GetComponentInChildren<SpriteRenderer>();
             return _renderer;
+        }
+    }
+    public Health health {
+        get {
+            _health ??= GetComponentInChildren<Health>();
+            
+            return _health;
         }
     }
 

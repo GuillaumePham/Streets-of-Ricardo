@@ -36,7 +36,7 @@ using UnityEngine;
 
             const float damagedHealthDuration = 1.25f;
             _damagedHealthTimer.SetDuration(damagedHealthDuration);
-
+    
             onUpdate?.Invoke(_amount);
         }
     }
