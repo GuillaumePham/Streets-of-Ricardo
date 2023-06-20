@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de4dceaba21815e4fbdaa9e6378a7b7c, type: 3}
+  m_Name: Landing
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 2800000, guid: da8c5229bf35d48459126ef43af92a03, type: 3}
+  - {fileID: 2800000, guid: aedcee4baa2b70a4795f194d1dcede98, type: 3}
+  - {fileID: 2800000, guid: 8da6e1485d065c5489977990b444170b, type: 3}
+  - {fileID: 2800000, guid: 22dbca7d23ce2aa40a293d2412cfc3dc, type: 3}
+  - {fileID: 2800000, guid: e224cc3d0c19c504598c19171e462532, type: 3}
+  - {fileID: 2800000, guid: 46e2dee64b4bdd343ab49c230efb0976, type: 3}
+  - {fileID: 2800000, guid: 07bd726fc7467614697943623f6de97b, type: 3}
+  - {fileID: 2800000, guid: e4752bfd0cd87224fbd1fddde43276e2, type: 3}
+  - {fileID: 2800000, guid: 459846d5897bd984da558938f9ffeb32, type: 3}
+  - {fileID: 2800000, guid: 91701e012fe446c42b8d8e31d0c83fc6, type: 3}
+  - {fileID: 2800000, guid: f2c6b845afd2f9a49a5e6acc5005540b, type: 3}
+  - {fileID: 2800000, guid: d378c3a11cea72d4e9dae48701a3b05b, type: 3}
+  looping: 0
+  frameRate: 0.041666668
+  movementSpeed: 1
+  lockMovement: 0
+  stopJump: 0
+  cancellable: 1
+  cancelFrame: 0
+  directional: 1
+  stopRotation: 0

@@ -31,13 +31,6 @@ public class JoystickInputManager : MonoBehaviour {
         PlayerInput pairedPlayer = PlayerInput.FindFirstPairedToDevice(context.control.device);
         
         string scheme = null;
-        // // find the first scheme with the "Attack" action where the binding matches the control that triggered the callback
-        // foreach (InputBinding binding in Keybinds.PlayerMap.bindings) {
-        //     if (binding.action == "Attack" && binding.effectivePath == context.control.path) {
-        //         scheme = binding.groups.Split(InputBinding.Separator)[0] ?? null;
-        //         break;
-        //     }
-        // }
         foreach (InputBinding binding in Keybinds.PlayerActions.Attack.bindings) {
             InputBinding? triggerBinding = context.action.GetBindingForControl(context.control);
             if (triggerBinding == null) {

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.InputSystem;
 
+using SevenGame.Utility;
 
 [RequireComponent(typeof(PlayerInput))]
 public class Player : Character {
@@ -10,7 +11,8 @@ public class Player : Character {
     [SerializeField] private MeshRenderer _playerIndicator;
 
 
-    private uint _attackProgress = 0;
+    [SerializeField] private ScaledTimeInterval _attackComboCooldown;
+    [SerializeField] private int _attackProgress = 0;
 
 
 
@@ -31,39 +33,40 @@ public class Player : Character {
     public override void Attack() {
         base.Attack();
 
-        if (!_currentFrames.cancellable || _currentFrames.cancelFrame > _nextFrameIndex) {
+        if (!_currentFrames.cancellable || _nextFrameIndex < _currentFrames.cancelFrame ) {
             return;
         }
 
-        _attackProgress = ++_attackProgress % 4;
+        _attackProgress = _attackProgress % 3 + 1;
 
         FrameSet attack = Addressables.LoadAssetAsync<FrameSet>($"Ricardo/Attack{_attackProgress}").WaitForCompletion();
-        SetAnimation(attack, () => {
-            _attackProgress = 0;
-            RegularAnimation();
-        });
+        _attackComboCooldown.SetDuration(0.7f);
+        SetAnimation(attack, null, RegularAnimation);
     }
 
     public override void Jump() {
         base.Jump();
         FrameSet jumpAnimation = Addressables.LoadAssetAsync<FrameSet>("Ricardo/Jump").WaitForCompletion();
-        SetAnimation(jumpAnimation, RegularAnimation);
+        SetAnimation(jumpAnimation, null, RegularAnimation);
     }
 
     protected override void CheckCollisions() {
         base.CheckCollisions();
 
-        // if (onGround.started) {
-        //     FrameSet landAnimation = Addressables.LoadAssetAsync<FrameSet>("Ricardo/Land").WaitForCompletion();
-        //     SetAnimation(landAnimation, RegularAnimation);
-        // }
+        if (onGround.started && _currentFrames.cancellable && _nextFrameIndex >= _currentFrames.cancelFrame ) {
+            FrameSet landAnimation = Addressables.LoadAssetAsync<FrameSet>("Ricardo/Landing").WaitForCompletion();
+            SetAnimation(landAnimation, null, RegularAnimation);
+        }
     }
 
     private void RegularAnimation() {
-        // string animationName = _moveMagnitude == 0f ? "Idle" : "Walk";
-        string animationName = "Idle";
-        FrameSet idle = Addressables.LoadAssetAsync<FrameSet>($"Ricardo/{animationName}").WaitForCompletion();
-        SetAnimation(idle);
+        string animationName = _moveMagnitude == 0f ? "Idle" : "Walk";
+        if (_currentFrames != null && _currentFrames.name == animationName) {
+            return;
+        }
+
+        FrameSet animation = Addressables.LoadAssetAsync<FrameSet>($"Ricardo/{animationName}").WaitForCompletion();
+        SetAnimation(animation);
     }
 
     protected override void Awake() {
@@ -76,5 +79,16 @@ public class Player : Character {
         _playerIndicator.SetPropertyBlock(mpb);
 
         RegularAnimation();
+    }
+
+    protected override void Update() {
+        base.Update();
+        if (_attackComboCooldown.isDone) {
+            _attackProgress = 0;
+        }
+
+        if ( _currentFrames.name == "Walk" || _currentFrames.name == "Idle" ) {
+            RegularAnimation();
+        }
     }
 }
