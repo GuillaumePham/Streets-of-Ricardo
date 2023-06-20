@@ -7,7 +7,7 @@ using System;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Health))]
-public abstract class Character : Entity {
+public abstract class Character : Entity, IDamageable {
 
     [SerializeField] protected SpriteRenderer _renderer;
     [SerializeField] protected Health _health;
@@ -70,6 +70,9 @@ public abstract class Character : Entity {
     protected virtual float moveSpeed => 5f;
     protected virtual float jumpForce => 5f;
 
+    public virtual void Damage(float damage, bool direction) {
+        health.amount -= damage;
+    }
 
     public virtual void Move(Vector2 direction) {
         _lastMoveInput = Mathf.Clamp(direction.x, -1f, 1f);
@@ -83,6 +86,30 @@ public abstract class Character : Entity {
             MoveLayer(layerMove);
             _lastLayerMove = layerMove;
         }
+    }
+
+    private void ProcessAttack(FrameSet.AttackData attack, bool directional) {
+        Vector2 position = attack.position;
+        if (directional) {
+            position.x *= _lastMoveDirection ? 1f : -1f;
+        }
+
+        Vector3 worldPosition = transform.position + (Vector3)position;
+        Debug.DrawLine(worldPosition, worldPosition + Vector3.up * 2f, Color.red, 1f);
+
+        Collider[] colliders = Physics.OverlapSphere(worldPosition, attack.radius, LayerMask.GetMask("Entity"));
+
+        foreach (Collider collider in colliders) {
+            if (collider == this.collider || collider == null) {
+                continue;
+            }
+
+            if ( collider.TryGetComponent(out IDamageable damageable) || (collider.attachedRigidbody?.TryGetComponent(out damageable) ?? false) ) {
+                damageable.Damage(attack.damage, _lastMoveDirection);
+            }
+            
+        }
+
     }
     public virtual void Attack() {
     }
@@ -188,8 +215,16 @@ public abstract class Character : Entity {
         if (_nextFrameIndex == _currentFrames.frames.Length - 1) {
             _onAnimationComplete?.Invoke();
         }
-
         mpb.SetTexture("_MainTex", _currentFrames[_nextFrameIndex]);
+
+        foreach (FrameSet.AttackData attack in _currentFrames.attacks) {
+            if (attack.frameIndex == _nextFrameIndex) {
+                ProcessAttack(attack, _currentFrames.directional);
+            }
+        }
+
+
+
         _nextFrameIndex =
             (uint)(_currentFrames.looping ? 
             (++_nextFrameIndex % _currentFrames.frames.Length) : 

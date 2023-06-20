@@ -31,6 +31,11 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 9d7483ff9d9da3442943ca786228aac2, type: 3}
   looping: 0
   frameRate: 0.041666668
+  attacks:
+  - frameIndex: 4
+    damage: 5
+    position: {x: 1.25, y: 1.25}
+    radius: 1.25
   movementSpeed: 1.63
   lockMovement: 1
   stopJump: 0

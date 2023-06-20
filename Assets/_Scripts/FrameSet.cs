@@ -16,6 +16,8 @@ public class FrameSet : ScriptableObject {
     public bool looping = false;
     public float frameRate = 1f / 24f;
 
+    public List<AttackData> attacks = new List<AttackData>();
+
     [Header("Movement")]
     [Range(0f, 3f)] public float movementSpeed = 1f;
     public bool lockMovement = false;
@@ -28,4 +30,21 @@ public class FrameSet : ScriptableObject {
     [Header("Rotation")]
     public bool directional = false;
     public bool stopRotation;
+
+
+    [System.Serializable]
+    public struct AttackData {
+        public uint frameIndex;
+        public float damage;
+
+        public Vector2 position;
+        public float radius;
+
+        public AttackData(uint frameIndex, float damage, Vector2 position, float radius) {
+            this.frameIndex = frameIndex;
+            this.damage = damage;
+            this.position = position;
+            this.radius = radius;
+        }
+    }
 }

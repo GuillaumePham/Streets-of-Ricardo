@@ -57,6 +57,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e2f907120ebc364796204d9c56af6ec
+    m_Address: Ricardo/Win
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4298502d32bccb24682268cfd4b3f0f3
+    m_Address: Ricardo/Death
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 037213641438f2e469f3b9db341048ed, type: 2}
   m_SchemaSet:

@@ -17,16 +17,18 @@ public class JoystickInputManager : MonoBehaviour {
     }
     
     private void OnEnable() {
-        Keybinds.PlayerActions.Attack.performed += TryJoinPlayer;
+        // Keybinds.PlayerActions.Attack.performed += TryJoinPlayer;
         Keybinds.PlayerMap.Enable();
     }
 
     private void OnDisable() {
-        Keybinds.PlayerActions.Attack.performed -= TryJoinPlayer;
+        // Keybinds.PlayerActions.Attack.performed -= TryJoinPlayer;
         Keybinds.PlayerMap.Disable();
     }
 
     private void TryJoinPlayer(InputAction.CallbackContext context) {
+
+        Debug.Log(context);
         
         PlayerInput pairedPlayer = PlayerInput.FindFirstPairedToDevice(context.control.device);
         

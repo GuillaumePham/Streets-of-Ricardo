@@ -7,6 +7,8 @@ using SevenGame.Utility;
 [RequireComponent(typeof(PlayerInput))]
 public class Player : Character {
 
+    public string playerName;
+
     [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private MeshRenderer _playerIndicator;
 
@@ -15,7 +17,27 @@ public class Player : Character {
     [SerializeField] private int _attackProgress = 0;
 
 
+    public PlayerInput playerInput => _playerInput;
 
+    public void Win() {
+        FrameSet winAnimation = Addressables.LoadAssetAsync<FrameSet>("Ricardo/Win").WaitForCompletion();
+        SetAnimation(winAnimation, null, null);
+    }
+    protected void Death() {
+        GameManager.current.Defeat(this);
+        FrameSet deathAnimation = Addressables.LoadAssetAsync<FrameSet>("Ricardo/Death").WaitForCompletion();
+        SetAnimation(deathAnimation, null, null);
+    }
+    public override void Damage(float damage, bool direction) {
+        base.Damage(damage, direction);
+        FrameSet hitAnimation = Addressables.LoadAssetAsync<FrameSet>("Ricardo/Damage").WaitForCompletion();
+        _moveMagnitude = direction ? 1f : -1f;
+        SetAnimation(hitAnimation, null, RegularAnimation);
+
+        if (health.amount <= 0f) {
+            Death();
+        }
+    }
     public void AttackInput(InputAction.CallbackContext context) {
         if (context.performed) {
             Attack();

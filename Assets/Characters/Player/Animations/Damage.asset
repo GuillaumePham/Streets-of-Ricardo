@@ -13,36 +13,21 @@ MonoBehaviour:
   m_Name: Damage
   m_EditorClassIdentifier: 
   frames:
-  - {fileID: 2800000, guid: 773af998ae1e3754e9845f2b15483811, type: 3}
-  - {fileID: 2800000, guid: 030ce7ec394a2e5499a49e71a28cc724, type: 3}
-  - {fileID: 2800000, guid: e11dee5b69dc2df4ab78c7b3b2c4ffa9, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
-  - {fileID: 2800000, guid: 5376c4b6375f6e54a8c4bcaf35920c5b, type: 3}
+  - {fileID: 2800000, guid: 52ddf7318a4552d459eda4c3b6f128a2, type: 3}
+  - {fileID: 2800000, guid: b9cc6cf4c764f894a83fdf081d3c6df5, type: 3}
+  - {fileID: 2800000, guid: bbcef9e7972086b48bc1cdf7a2062e39, type: 3}
+  - {fileID: 2800000, guid: 1fc740e92316a704285bfcba1330f17f, type: 3}
+  - {fileID: 2800000, guid: e3501e29a34ed9740a44f0f4ee3f270a, type: 3}
+  - {fileID: 2800000, guid: fad764b894c08a84e82e9319bb4b4a34, type: 3}
+  - {fileID: 2800000, guid: 777d372ba6a4dfc47a34ed8a90a6a286, type: 3}
+  - {fileID: 2800000, guid: d2604a3f57cdfc14d957da12c29b8718, type: 3}
+  - {fileID: 2800000, guid: 87a3b339f6b9d4344be71597d1f82b2d, type: 3}
   looping: 0
+  frameRate: 0.041666668
+  movementSpeed: 0.198
+  lockMovement: 1
+  stopJump: 1
+  cancellable: 0
+  cancelFrame: 0
+  directional: 1
+  stopRotation: 1

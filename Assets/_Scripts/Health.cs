@@ -17,10 +17,6 @@ using UnityEngine;
     [SerializeField] private float _damagedHealthVelocity = 0f;
 
 
-    public event Action<float> onUpdate;
-
-
-
     public float maxAmount {
         get => _maxAmount;
         set {
@@ -36,10 +32,9 @@ using UnityEngine;
 
             const float damagedHealthDuration = 1.25f;
             _damagedHealthTimer.SetDuration(damagedHealthDuration);
-    
-            onUpdate?.Invoke(_amount);
         }
     }
+    public float damagedHealth => _damagedHealth;
 
 
     private void Awake() {
