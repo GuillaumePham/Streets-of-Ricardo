@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de4dceaba21815e4fbdaa9e6378a7b7c, type: 3}
+  m_Name: Jump
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 2800000, guid: 02c48732eb0e32d4599362e1d4f3d1a4, type: 3}
+  - {fileID: 2800000, guid: e7df5cf4aadce16438a3f90fa89494f0, type: 3}
+  - {fileID: 2800000, guid: b48684fa7d6e7a14b9c9abf6a75efe53, type: 3}
+  - {fileID: 2800000, guid: a475e6c007bd011448d664bd2de31ec0, type: 3}
+  - {fileID: 2800000, guid: 74250539921e8374293c8c92e65dc365, type: 3}
+  - {fileID: 2800000, guid: 4f61215f97ccba3429d6efc06b4aba12, type: 3}
+  - {fileID: 2800000, guid: 1cb214e826367b746974bfef635373e9, type: 3}
+  - {fileID: 2800000, guid: 937415e27aef66041b468174dffe650e, type: 3}
+  - {fileID: 2800000, guid: caf404a54086acf46a577a2dad490054, type: 3}
+  - {fileID: 2800000, guid: 096e5bf8deae0314895fc50c39bba79d, type: 3}
+  - {fileID: 2800000, guid: e84491df3aee4e440bd5b9a0fe63c4a6, type: 3}
+  - {fileID: 2800000, guid: fba1e7e27784c7e42949bae37a685cc2, type: 3}
+  - {fileID: 2800000, guid: 035373b18443cec44adc52df31ff086c, type: 3}
+  - {fileID: 2800000, guid: c6f3d5cdf52d78246a891d6ef14cfb89, type: 3}
+  - {fileID: 2800000, guid: 242fe036519bfaf49aa6bd5671b62eae, type: 3}
+  - {fileID: 2800000, guid: 5d992f0b1aee57c4a87533af61719056, type: 3}
+  - {fileID: 2800000, guid: df1813e5c5403dc449c25b9b1b9d6103, type: 3}
+  - {fileID: 2800000, guid: 5c20e14eabf47cc47965be1f79abc957, type: 3}
+  - {fileID: 2800000, guid: 90bcda2fc19749a459f43a10888cd2b9, type: 3}
+  - {fileID: 2800000, guid: 22de752c9e1c1b34e973fc5ab11213ca, type: 3}
+  - {fileID: 2800000, guid: 846f1a2a5cd297949b2f0492e7412b81, type: 3}
+  - {fileID: 2800000, guid: 37b1fc1ecb2dc424ab7d440284b24056, type: 3}
+  looping: 0
+  frameRate: 0.041666668
+  movementSpeed: 1
+  lockMovement: 0
+  stopJump: 0
+  cancellable: 1
+  cancelFrame: 0
+  directional: 1
+  stopRotation: 0

@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de4dceaba21815e4fbdaa9e6378a7b7c, type: 3}
+  m_Name: Attack3
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 2800000, guid: 5c476e3a188304d4c9fd2eaeb622a130, type: 3}
+  - {fileID: 2800000, guid: f980fdb8b0f4ade4e8196b61f563de88, type: 3}
+  - {fileID: 2800000, guid: 8e31e4026ee44a34da85262174f47138, type: 3}
+  - {fileID: 2800000, guid: 69bd7c116ca2d1c40a0a2554cd61b0ae, type: 3}
+  - {fileID: 2800000, guid: 5cd22bb621f7fdd42a13c88d4a645471, type: 3}
+  - {fileID: 2800000, guid: 2f1d7024d01715043b20624dff6ef911, type: 3}
+  - {fileID: 2800000, guid: d2a4c83345dbe5e4f91627a4bec868ac, type: 3}
+  - {fileID: 2800000, guid: 354c0e29958534a40bc5b12702c264ba, type: 3}
+  - {fileID: 2800000, guid: e10af97a3d9af9849b48fa99297a4dcb, type: 3}
+  - {fileID: 2800000, guid: 692d4cddf320f6744a59fc1f8d053213, type: 3}
+  - {fileID: 2800000, guid: 21e55d2f0bdb254498e4dff778cf8029, type: 3}
+  - {fileID: 2800000, guid: c9c23ebe2fcea4d4b9f30f4857644ace, type: 3}
+  - {fileID: 2800000, guid: 6870805f3ad18fa42b42fb062a4eee20, type: 3}
+  - {fileID: 2800000, guid: 732f943e9848c9c4c88ce7b5f44943f7, type: 3}
+  - {fileID: 2800000, guid: 172c235758086ae4f97d03c94768c9ba, type: 3}
+  - {fileID: 2800000, guid: eeff0afb1e2c7e946909124b82f3ce51, type: 3}
+  - {fileID: 2800000, guid: eea24d4ce825b3747b8ca250796a32ec, type: 3}
+  - {fileID: 2800000, guid: c8d0c1c5b54b1054e83018f0d2cc9614, type: 3}
+  - {fileID: 2800000, guid: 4aa638fe8e341ad4fb9e1125e6441198, type: 3}
+  - {fileID: 2800000, guid: 5f8ea574fe6cb6f4890420ec2ada6ea0, type: 3}
+  - {fileID: 2800000, guid: 116c17d408ecb1141a82000a934ae5d7, type: 3}
+  - {fileID: 2800000, guid: 26546670aca999d449765d498a570efb, type: 3}
+  - {fileID: 2800000, guid: 89e04c282f46bd24eb5271247dace072, type: 3}
+  - {fileID: 2800000, guid: 443bba242055b1f44bcd83c6b7b70dd2, type: 3}
+  - {fileID: 2800000, guid: 30800e909d0e2834181b86f3f1ff8402, type: 3}
+  - {fileID: 2800000, guid: 1afdc42d5e41b2f44b43e0bc34bdcdf8, type: 3}
+  - {fileID: 2800000, guid: 23c45476f122c1c45b425ca41fa667eb, type: 3}
+  - {fileID: 2800000, guid: a145010847986a7499eb6b947ec3a633, type: 3}
+  - {fileID: 2800000, guid: a26bfd728d0c87a43a8a94f802630a21, type: 3}
+  - {fileID: 2800000, guid: b5da624f8597beb4b8699bfff3063b9d, type: 3}
+  looping: 0
+  frameRate: 0.041666668
+  movementSpeed: 0.21
+  lockMovement: 1
+  stopJump: 0
+  cancellable: 0
+  cancelFrame: 0
+  directional: 1
+  stopRotation: 1
