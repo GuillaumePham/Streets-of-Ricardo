@@ -26,11 +26,18 @@ public class GameManager : Singleton<GameManager> {
         player1HUD.SetName(player1Profile.playerName);
         player1HUD.gameObject.SetActive(true);
         player1.transform.position = new Vector3(-5, 7f, 0);
-            
+        player1.SetStrength(player1Profile.strength);
+        player1.SetSpeed(player1Profile.speed);
+        player1.SetJump(player1Profile.jumpForce);
+        
+        
         player2HUD.SetCharacter(player2);
         player2HUD.SetName(player2Profile.playerName);
         player2HUD.gameObject.SetActive(true);
         player2.transform.position = new Vector3(5, 7f, 0);
+        player2.SetStrength(player2Profile.strength);
+        player2.SetSpeed(player2Profile.speed);
+        player2.SetJump(player2Profile.jumpForce);
             
     }
 

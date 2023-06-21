@@ -14,10 +14,13 @@ public class KeyboardController : UIModal<KeyboardController> {
     private string _input = "";
 
     [SerializeField] private GameObject _keyMenu;
+    [SerializeField] private TextMeshProUGUI _headerText;
     [SerializeField] private TextMeshProUGUI _inputText;
     [SerializeField] private GameObject _keyPrefab;
-    [SerializeField] private GameObject _keyContainer;
-    [SerializeField] private KeyboardKey[] _keys = new KeyboardKey[26];
+    [SerializeField] private GameObject _letterContainer;
+    [SerializeField] private GameObject _numberContainer;
+    [SerializeField] private KeyboardKey[] _letterKeys = new KeyboardKey[26];
+    [SerializeField] private KeyboardKey[] _numberKeys = new KeyboardKey[10];
     [SerializeField] private Button _eraseButton;
     [SerializeField] private Button _deleteButton;
     [SerializeField] private Button _confirmButton;
@@ -26,8 +29,19 @@ public class KeyboardController : UIModal<KeyboardController> {
 
 
 
-    public void GetString(Action<String> onSubmit) {
+    public void GetString(Action<String> onSubmit, string headerText) {
         _onSubmit = onSubmit;
+        _headerText.text = headerText;
+        _numberContainer.SetActive(false);
+        _letterContainer.SetActive(true);
+        Enable();
+    }
+
+    public void GetNumber(Action<String> onSubmit, string headerText) {
+        _onSubmit = onSubmit;
+        _headerText.text = headerText;
+        _letterContainer.SetActive(false);
+        _numberContainer.SetActive(true);
         Enable();
     }
 
@@ -57,20 +71,36 @@ public class KeyboardController : UIModal<KeyboardController> {
     }
 
 
-    private void CreateKeyboard() {
+    private void CreateLetterKeyboard() {
 
-        _keys = new KeyboardKey[26];
+        _letterKeys = new KeyboardKey[26];
 
-        if (_keys.Length == 26 && _keys[0] != null) {
+        if (_letterKeys.Length == 26 && _letterKeys[0] != null) {
             return;
         }
 
-        string keyCharacters = "QWERTYUIOPASDFGHJKLZXCVBNM";
+        string letterCharacters = "QWERTYUIOPASDFGHJKLZXCVBNM";
 
-        for (int i = 0; i < keyCharacters.Length; i++) {
-            GameObject keyObject = Instantiate(_keyPrefab, _keyContainer.transform);
-            _keys[i] = keyObject.GetComponent<KeyboardKey>();
-            _keys[i].key = keyCharacters[i];
+        for (int i = 0; i < letterCharacters.Length; i++) {
+            GameObject keyObject = Instantiate(_keyPrefab, _letterContainer.transform);
+            _letterKeys[i] = keyObject.GetComponent<KeyboardKey>();
+            _letterKeys[i].key = letterCharacters[i];
+        }
+    }
+    private void CreateNumberKeyboard() {
+
+        _numberKeys = new KeyboardKey[10];
+
+        if (_numberKeys.Length == 10 && _numberKeys[0] != null) {
+            return;
+        }
+
+        string numberCharacters = "0123456789";
+
+        for (int i = 0; i < numberCharacters.Length; i++) {
+            GameObject keyObject = Instantiate(_keyPrefab, _numberContainer.transform);
+            _numberKeys[i] = keyObject.GetComponent<KeyboardKey>();
+            _numberKeys[i].key = numberCharacters[i];
         }
     }
 
@@ -78,7 +108,6 @@ public class KeyboardController : UIModal<KeyboardController> {
     public override void Enable() {
         base.Enable();
         _keyMenu.SetActive(true);
-
         ResetGamePadSelection();
         EnableInteraction();
     }
@@ -91,7 +120,7 @@ public class KeyboardController : UIModal<KeyboardController> {
 
 
     public override void DisableInteraction() {
-        foreach (KeyboardKey key in _keys) {
+        foreach (KeyboardKey key in _letterKeys) {
             key.DisableInteraction();
         }
         _eraseButton.interactable = false;
@@ -100,7 +129,7 @@ public class KeyboardController : UIModal<KeyboardController> {
     }
 
     public override void EnableInteraction() {
-        foreach (KeyboardKey key in _keys) {
+        foreach (KeyboardKey key in _letterKeys) {
             key.EnableInteraction();
         }
         _eraseButton.interactable = true;
@@ -113,11 +142,18 @@ public class KeyboardController : UIModal<KeyboardController> {
     }
 
     public override void ResetGamePadSelection() {
-        EventSystem.current.SetSelectedGameObject(_keyContainer.transform.GetChild(0).gameObject);
+        if (_letterContainer.activeSelf) {
+            EventSystem.current.SetSelectedGameObject(_letterKeys[0].gameObject);
+        } else if (_numberContainer.activeSelf) {
+            EventSystem.current.SetSelectedGameObject(_numberKeys[0].gameObject);
+        } else {
+            EventSystem.current.SetSelectedGameObject(_eraseButton.gameObject);
+        }
     }
     
     private void Awake() {
-        CreateKeyboard();
+        CreateLetterKeyboard();
+        CreateNumberKeyboard();
         // GetString(null);
     }
 }

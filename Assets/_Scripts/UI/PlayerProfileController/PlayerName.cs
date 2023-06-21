@@ -16,7 +16,7 @@ public class PlayerName : CustomButton {
     public override void OnSubmit(BaseEventData eventData) {
         base.OnSubmit(eventData);
         _playerNameText.text = "Waiting for new Name...";
-        KeyboardController.current.GetString(OnSetPlayerName);
+        KeyboardController.current.GetString(OnSetPlayerName, "Enter your name:");
     }
 
     private void OnSetPlayerName(string name) {

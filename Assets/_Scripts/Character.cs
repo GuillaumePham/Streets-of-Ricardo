@@ -67,8 +67,9 @@ public abstract class Character : Entity, IDamageable {
         }
     }
 
-    protected virtual float moveSpeed => 5f;
-    protected virtual float jumpForce => 5f;
+    protected abstract float moveSpeed { get; }
+    protected abstract float attackStrength { get; }
+    protected abstract float jumpForce { get; }
 
     public virtual void Damage(float damage, bool direction) {
         health.amount -= damage;
@@ -105,7 +106,7 @@ public abstract class Character : Entity, IDamageable {
             }
 
             if ( collider.TryGetComponent(out IDamageable damageable) || (collider.attachedRigidbody?.TryGetComponent(out damageable) ?? false) ) {
-                damageable.Damage(attack.damage, _lastMoveDirection);
+                damageable.Damage(attack.damage * attackStrength, _lastMoveDirection);
             }
             
         }

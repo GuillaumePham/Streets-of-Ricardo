@@ -28,7 +28,7 @@ public class PlayerDevice : CustomButton {
         Keybinds.PlayerActions.Attack.performed += TryAssignDevice;
 
         _deviceNameText.text = "Press the Attack button on your device...";
-        _schemeNameText.text = "";
+        _schemeNameText.gameObject.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
     }
 
@@ -41,6 +41,7 @@ public class PlayerDevice : CustomButton {
 
         _deviceNameText.text = device.displayName;
         _schemeNameText.text = scheme;
+        _schemeNameText.gameObject.SetActive(true);
         ResetSelection();
     }
 

@@ -52,7 +52,7 @@ public class PlayerProfileController : UIMenu<PlayerProfileController> {
     }
 
     public override void ResetGamePadSelection() {
-        EventSystem.current.SetSelectedGameObject(_player1Profile.playerNameButton.gameObject);
+        EventSystem.current.SetSelectedGameObject(_player1Profile.playerNameInput.gameObject);
     }
 
     private void Awake() {

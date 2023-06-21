@@ -11,6 +11,9 @@ public class Player : Character {
 
     [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private MeshRenderer _playerIndicator;
+    [SerializeField] private float _playerSpeed;
+    [SerializeField] private float _playerStrength;
+    [SerializeField] private float _playerJump;
 
 
     [SerializeField] private ScaledTimeInterval _attackComboCooldown;
@@ -18,6 +21,22 @@ public class Player : Character {
 
 
     public PlayerInput playerInput => _playerInput;
+
+    protected override float moveSpeed => _playerSpeed;
+    protected override float attackStrength => _playerStrength;
+    protected override float jumpForce => _playerJump;
+
+    public void SetSpeed(float speed) {
+        _playerSpeed = speed;
+    }
+
+    public void SetStrength(float strength) {
+        _playerStrength = strength;
+    }
+
+    public void SetJump(float jump) {
+        _playerJump = jump;
+    }
 
     public void Win() {
         FrameSet winAnimation = Addressables.LoadAssetAsync<FrameSet>("Ricardo/Win").WaitForCompletion();
